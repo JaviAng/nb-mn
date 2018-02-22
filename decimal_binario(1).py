@@ -1,3 +1,5 @@
+#urley camilo guerrero rodriguez 161003449
+#ricardo ivan diaz moreno 161003415
 import os
 def decimal_binario (decimal):
 
