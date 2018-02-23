@@ -2,7 +2,7 @@
 """
 Created on Wed Feb 21 14:26:51 2018
 
-@author: Felipe Coral
+@author: Felipe Coral y Brayan Saldarriaga
 """
 
 
@@ -27,6 +27,7 @@ while(1):
     UnionD=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     
     NumIngresado = float(input("INGRESE EL NUMERO: "))
+    
     if NumIngresado>=0:
         PartEnt=int(NumIngresado)
         Prueba = str(NumIngresado).split(".")
@@ -55,12 +56,16 @@ while(1):
 #        for i in range(0,23):
 #            print(DecBin[i])
 #        print("     ")
-        while (EnteBin[cont] != 1):
+        bandera=0
+        while (EnteBin[cont] != 1 and bandera==0):
             cont=cont+1
-        
-    
-        while (DecBin[cont2] == 0):
+            if(cont==22):
+                bandera=1
+        bandera =0
+        while (DecBin[cont2] == 0 and bandera==0):
             cont2=cont2+1
+            if(cont2==22):
+                bandera=1
             
 #        print(cont, cont2)
         
