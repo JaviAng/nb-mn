@@ -1,3 +1,5 @@
+# JOSE DAVID RAMOS RIOS 
+# GRUPO 12 
 from numpy import array 
 import math
 print("                    Conversion de Decimal a IEEE 754 ")
