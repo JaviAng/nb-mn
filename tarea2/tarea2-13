@@ -1,0 +1,68 @@
+import sympy as sy
+import numpy as np
+import math
+from sympy.functions import sin,cos
+
+# Define the variable and the function to approximate
+x = sy.Symbol('x')
+f = cos(x)
+# Taylor approximation at x0 of the function 'function'
+def taylor(function,x0,n):
+    i = 0
+    p = 0
+    while i <= n:
+        p = p + (function.diff(x,i).subs(x,x0))/(math.factorial(i))*(x-x0)**i
+        i = i + 1
+    return p
+
+a1=taylor(f,0,1).subs(x,0)
+a2=taylor(f,0,2).subs(x,0)
+a3=taylor(f,0,3).subs(x,0)
+a4=taylor(f,0,4).subs(x,0)
+a5=taylor(f,0,5).subs(x,0)
+b1=taylor(f,0.0001,1).subs(x,0.0001)
+b2=taylor(f,0.0001,2).subs(x,0.0001)
+b3=taylor(f,0.0001,3).subs(x,0.0001)
+b4=taylor(f,0.0001,4).subs(x,0.0001)
+b5=taylor(f,0.0001,5).subs(x,0.0001)
+c1=taylor(f,0.001,1).subs(x,0.001)
+c2=taylor(f,0.001,2).subs(x,0.001)
+c3=taylor(f,0.001,3).subs(x,0.001)
+c4=taylor(f,0.001,4).subs(x,0.001)
+c5=taylor(f,0.001,5).subs(x,0.001)
+d1=taylor(f,0.01,1).subs(x,0.01)
+d2=taylor(f,0.01,2).subs(x,0.01)
+d3=taylor(f,0.01,3).subs(x,0.01)
+d4=taylor(f,0.01,4).subs(x,0.01)
+d5=taylor(f,0.01,5).subs(x,0.01)
+e1=taylor(f,0.1,1).subs(x,0.1)
+e2=taylor(f,0.1,2).subs(x,0.1)
+e3=taylor(f,0.1,3).subs(x,0.1)
+e4=taylor(f,0.1,4).subs(x,0.1)
+e5=taylor(f,0.1,5).subs(x,0.1)
+z1=taylor(f,1,1).subs(x,1)
+z2=taylor(f,1,2).subs(x,1)
+z3=taylor(f,1,3).subs(x,1)
+z4=taylor(f,1,4).subs(x,1)
+z5=taylor(f,1,5).subs(x,1)
+u1=taylor(f,10,1).subs(x,10)
+u2=taylor(f,10,2).subs(x,10)
+u3=taylor(f,10,3).subs(x,10)
+u4=taylor(f,10,4).subs(x,10)
+u5=taylor(f,10,5).subs(x,10)
+
+
+
+print('X\t\tExacto     \t\t\t   Aprox1       \tAprox2     \tAprox3       \t\tAprox4     \t\t   Aprox5')
+print('0\t\t',math.cos(0),'\t\t\t',a1,'\t',a2,'\t',a3,'\t\t',a4,'\t\t',a5)
+print('0.0001\t\t',math.cos(0.0001),'\t\t',b1,'\t',b2,'\t',b3,'\t',b4,'\t',b5)
+print('0.001\t\t',math.cos(0.001),'\t\t',c1,'\t',c2,'\t',c3,'\t',c4,'\t',c5)
+print('0.01\t\t',math.cos(0.01),'\t',d1,'\t',d2,'\t',d3,'\t',d4,'\t',d5)
+print('0.1\t\t',math.cos(0.1),'\t',e1,'\t',e2,'\t',e3,'\t',e4,'\t',e5)
+print('1\t\t',math.cos(1),'\t',z1,'\t',z2,'\t',z3,'\t\t',z4,'\t\t',z5)
+print('10\t\t',math.cos(10),'\t',u1,'\t',u2,'\t',u3,'\t\t',u4,'\t\t',u5)
+
+
+num = float(input('ingrese número: '))
+sumatoria = float(input('ingrese hasta que grado la sumatoria: '))
+print (taylor(f,num,sumatoria).subs(x,num))
