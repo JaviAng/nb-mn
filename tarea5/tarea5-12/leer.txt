@@ -1,0 +1,5 @@
+Trabajo final de metodos numericos sistema binario super.nova
+realizado por:
+- Jose David Ramos Rios
+- codigo: 161002940.
+Archivos tanto en blender como en python que ejecutan en scripts.
