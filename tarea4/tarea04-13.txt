@@ -1,0 +1,82 @@
+from math import*
+from tkinter import*
+root=Tk()
+lienzo=Canvas(root, width=1080,height=720)
+lienzo.pack()
+x=500
+y=500
+a=x-30
+b=y-7
+c=x+87
+d=y+107
+
+def callback(event):
+    global x,y,a,b,c,d
+    print ("Click en","x:" + str(event.x),"y:" + str(event.y))
+    x=event.x
+    y=event.y
+    e=x-30
+    f=y-7
+    g=x+87
+    h=y+107
+
+    if f>d:        
+        if h<b:
+            if c>=a: 
+                print("no se puede crear uno encima de otro")
+
+    else:
+        a=e
+        b=f
+        c=g
+        d=h
+        copo(3)
+        circulo()
+def copo(n):
+
+    x_ver1=x
+    y_ver1=y
+    x_ver2=x
+    y_ver2=y+100
+    x_ver3=x+87
+    y_ver3=y+50
+
+
+
+
+
+    curva(x_ver1,y_ver1,x_ver2,y_ver2,n)
+    curva(x_ver2,y_ver2,x_ver3,y_ver3,n)
+    curva(x_ver3,y_ver3,x_ver1,y_ver1,n)
+    curva(x_ver1,y_ver1,x_ver2,y_ver2,n)
+
+
+
+
+
+    return
+ def curva(xi,yi,xf,yf,n):
+    if n==0:
+        lienzo.create_line(xi,yi,xf,yf)
+
+    elif n>0:
+        x1=xi+(xf-xi)/3
+        y1=yi+(yf-yi)/3
+
+        x3=(2*xf+xi)/3
+        y3=(2*yf+yi)/3
+
+        x2=x1+(x3-x1)*cos(pi/3)-(y3-y1)*sin(pi/3)
+        y2=y1+(y3-y1)*cos(pi/3)+(x3-x1)*sin(pi/3)
+
+        curva(xi,yi,x1,y1,n-1)
+        curva(x1,y1,x2,y2,n-1)
+        curva(x2,y2,x3,y3,n-1)
+        curva(x3,y3,xf,yf,n-1)
+        return
+def circulo():
+     lienzo.create_oval(a,b,c,d)
+     return
+copo(3)
+circulo()
+root.bind('<Button-1>',callback)`
